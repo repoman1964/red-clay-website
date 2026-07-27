@@ -78,18 +78,18 @@ This app uses the Nitro **`cloudflare-pages`** preset (output: `dist/`).
 | Production branch | `main` |
 | Build command | `npm run build` |
 | Build output directory | **`dist`** (not `.output` or `dist/public`) |
-| Node version | **20** (set env `NODE_VERSION=20`) |
+| Node version | **`22`** (set env `NODE_VERSION=22`) — Nuxt 4.5 needs ≥22.19 |
 
 **Environment variables** (Pages → Settings → Environment variables):
 
 | Name | Example |
 |---|---|
-| `NODE_VERSION` | `20` |
+| `NODE_VERSION` | `22` |
 | `NUXT_PUBLIC_API_BASE_URL` | Your public JobPulse API URL (leave empty to use offline portfolio) |
 | `NUXT_PUBLIC_CONTRACTOR_SLUG` | `red-clay-cabinet-installers` |
 | `NUXT_PUBLIC_DIRECTORY_URL` | Optional directory URL |
 
-If the build fails with a missing output folder, the project was likely still on the default Node server preset — ensure `nitro.preset: 'cloudflare-pages'` is in `nuxt.config.ts` (already set in this repo).
+Repo includes `.npmrc` (`legacy-peer-deps=true`) so Cloudflare’s `npm ci` matches local installs. If install fails with lockfile/sync errors, ensure the latest `package-lock.json` is on `main`.
 
 ## Related (separate project)
 
