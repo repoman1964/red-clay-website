@@ -69,6 +69,35 @@ npm run dev -- --port 3002 --host
 | `NUXT_PUBLIC_CONTRACTOR_SLUG` | `red-clay-cabinet-installers` |
 | `NUXT_PUBLIC_DIRECTORY_URL` | `http://localhost:3001` |
 
+## Cloudflare Pages (Connect to Git)
+
+This app uses the Nitro **`cloudflare-pages`** preset (output: `dist/`).
+
+| Setting | Value |
+|---|---|
+| Project name | `red-clay-website` |
+| Production branch | `main` |
+| Build command | `npm run build` |
+| Build output directory | **`dist`** (not `.output` or `dist/public`) |
+| Node version | **`22`** (set env `NODE_VERSION=22`) — Nuxt 4.5 needs ≥22.19 |
+
+**Environment variables** (Pages → Settings → Environment variables):
+
+| Name | Example |
+|---|---|
+| `NODE_VERSION` | `22` |
+| `NUXT_PUBLIC_API_BASE_URL` | Optional public JobPulse API URL (omit for offline demo portfolio) |
+| `NUXT_PUBLIC_CONTRACTOR_SLUG` | `red-clay-cabinet-installers` |
+| `NUXT_PUBLIC_DIRECTORY_URL` | Optional directory URL |
+
+Repo includes `.npmrc` (`legacy-peer-deps=true`) so Cloudflare’s `npm ci` matches local installs. If install fails with lockfile/sync errors, ensure the latest `package-lock.json` is on `main`.
+
+Manual direct upload (optional):
+
+```bash
+npm run deploy   # build + wrangler pages deploy dist
+```
+
 ## Related (separate project)
 
 JobPulse platform (API, contractor app, directory):

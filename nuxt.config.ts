@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   ssr: true,
+  // Cloudflare Pages (Git / wrangler pages deploy)
+  // Output: dist/  (+ dist/_worker.js for SSR)
+  nitro: {
+    preset: 'cloudflare-pages',
+  },
   app: {
     head: {
       title: 'Red Clay Cabinet Installers | Metro Atlanta',
