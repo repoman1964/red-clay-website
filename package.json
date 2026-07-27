@@ -2,16 +2,12 @@
   "name": "red-clay-website",
   "type": "module",
   "private": true,
-  "engines": {
-    "node": ">=22.19.0"
-  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "deploy": "npm run build && wrangler pages deploy dist"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "nuxt": "^4.5.0",
